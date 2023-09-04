@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Faktorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hitung Faktorial dari Input</h1>
+    <h3>Masukkan sembarang angka</h3>
+    <input type="number" id="angka" placeholder="Masukkan angka">
+    <button onclick="hitungFaktorial()">click</button>
+
+    <div id="hasil"></div>
+
+    <script>
+        function faktorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            } else {
+                return n * faktorial(n - 1);
+            }
+        }
+
+        function hitungFaktorial() {
+            const angkaInput = parseInt(document.getElementById('angka').value);
+            const hasil = document.getElementById('hasil');
+
+            hasil.innerHTML = ''; // Menghapus pesan sebelumnya
+
+            if (isNaN(angkaInput) || angkaInput < 0) {
+                hasil.innerHTML = 'Masukkan angka yang valid (angka >= 0)';
+            } else {
+                const hasilFaktorial = faktorial(angkaInput);
+                hasil.innerHTML = `Angka faktorial dari ${angkaInput} adalah: ${hasilFaktorial}`;
+            }
+        }
+    </script>
+</body>
+</html>

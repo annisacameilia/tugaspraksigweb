@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penampil Bilangan Fibonacci</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Penampil Bilangan Fibonacci</h1>
+        <p>Masukkan sebuah angka dan klik tombol untuk menampilkan bilangan Fibonacci dari 1 sampai angka tersebut.</p>
+        <input type="number" id="inputNumber" placeholder="Masukkan angka">
+        <button onclick="tampilkanBilanganFibonacci()">Tampilkan Bilangan Fibonacci</button>
+        <div id="hasil"></div>
+    </div>
+
+    <script>
+        function tampilkanBilanganFibonacci() {
+            const inputNumber = parseInt(document.getElementById('inputNumber').value);
+            const hasil = document.getElementById('hasil');
+            hasil.innerHTML = '';
+
+            if (isNaN(inputNumber) || inputNumber < 1) {
+                hasil.innerHTML = 'Masukkan angka yang valid (angka >= 1)';
+                return;
+            }
+
+            let a = 0, b = 1;
+            let fibonacci = [1];
+
+            while (b <= inputNumber) {
+                fibonacci.push(b);
+                let temp = b;
+                b = a + b;
+                a = temp;
+            }
+
+            hasil.innerHTML = 'Bilangan Fibonacci: ' + fibonacci.join(', ');
+        }
+    </script>
+</body>
+</html>

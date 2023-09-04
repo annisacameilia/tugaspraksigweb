@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: left;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Validasi Input</h1>
+    <p>Masukkan nama, password, dan alamat e-mail anda:</p>
+    <form id="validationForm">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <input type="submit" value="Klik">
+    </form>
+    <p class="error" id="errorMessage"></p>
+    <script>
+        document.getElementById("validationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Mendapatkan nilai input
+            const name = document.getElementById("name").value;
+            const password = document.getElementById("password").value;
+            const email = document.getElementById("email").value;
+
+            // Validasi input
+            if (password === "sss") {
+                alert("Input valid!");
+                document.getElementById("errorMessage").textContent = "";
+            } else {
+                document.getElementById("errorMessage").textContent = "Password salah!";
+            }
+        });
+    </script>
+</body>
+</html>
